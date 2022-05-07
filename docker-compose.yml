@@ -1,0 +1,144 @@
+version: '3'
+
+x-redash-service: &redash-service
+  image: redash/redash:latest
+  depends_on:
+    - postgres-redash
+    - redis
+  env_file: redash.env
+  restart: always
+
+services:
+  postgres-airflow:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: pssd
+      POSTGRES_USER : airflowuser
+      POSTGRES_DB : airflowdb
+      
+      AIRFLOW_SCHEMA: airflow
+    expose:
+      - 5432
+    restart: always
+    volumes:
+      - ./scripts_postgres:/docker-entrypoint-initdb.d
+      # - ./sample_data:/sample_data
+  postgres-redash:
+    image: postgres
+    env_file: redash.env
+    restart: always
+    expose:
+      - 5432
+
+  postgres-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pssd
+      POSTGRES_USER : dbtuser
+      POSTGRES_DB : analytics 
+    expose:
+      - 5432
+
+  mysql-dbt:
+    image: mysql
+    environment:
+     MYSQL_USER: dbtuser,
+     MYSQL_PASSWORD: pssd
+     MYSQL_ROOT_PASSWORD: pssd
+     MYSQL_DATABASE: analytics
+    ports:
+      - 3310:3306
+    volumes:
+      - ./my.cnf:/etc/mysql/my.cnf  
+      - ./data:/var/lib/mysql-files/
+
+  airflow:
+    build: .
+    restart: always
+    environment: 
+      DBT_PROFILES_DIR: /dbt
+      AIRFLOW_HOME: /airflow
+      AIRFLOW__CORE__DAGS_FOLDER: /airflow/dags
+      AIRFLOW__CORE__PARALLELISM: 4
+      AIRFLOW__CORE__DAG_CONCURRENCY: 4
+      AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: 4
+      # AIRFLOW__ADMIN__HIDE_SENSITIVE_VARIABLE_FIELDS: False
+      # Postgres details need to match with the values defined in the postgres-airflow service
+      POSTGRES_USER: airflowuser
+      POSTGRES_PASSWORD: pssd
+      POSTGRES_HOST: postgres-airflow
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: airflowdb
+      # postgres-dbt connection details. Required for the inital loading of seed data
+      # Credentials need to match with service postgres-dbt
+      
+      DBT_MYSQL_USER: root
+      DBT_MYSQL_PASSWORD: pssd
+      DBT_MYSQL_HOST: mysql-dbt
+      MYSQL_PORT: 3306
+      DBT_MYSQL_DB: analytics
+
+      ## this is unnessacry
+      
+      DBT_POSTGRES_PASSWORD: pssd
+      DBT_POSTGRES_USER : dbtuser
+      DBT_POSTGRES_DB : analytics
+      
+      DBT_DBT_SCHEMA: dbt
+      DBT_DBT_RAW_DATA_SCHEMA: dbt_raw_data
+      DBT_POSTGRES_HOST: postgres-db
+    depends_on:
+      - postgres-airflow
+      - mysql-dbt
+    ports:
+      - 8000:8080
+    volumes:
+      - ./dbt:/dbt
+      - ./airflow:/airflow
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres-airflow
+      - mysql-dbt
+      - postgres-db
+  
+  superset:
+    image: tylerfowler/superset
+    restart: always
+    ports:
+      - "8088:8088"
+
+  server:
+    <<: *redash-service
+    command: server
+    ports:
+      - 5000:5000
+    environment:
+      REDASH_WEB_WORKERS: 4
+  scheduler:
+    <<: *redash-service
+    command: scheduler
+    environment:
+      QUEUES: "celery"
+      WORKERS_COUNT: 1
+  scheduled_worker:
+    <<: *redash-service
+    command: worker
+    environment:
+      QUEUES: "scheduled_queries,schemas"
+      WORKERS_COUNT: 1
+  adhoc_worker:
+    <<: *redash-service
+    command: worker
+    environment:
+      QUEUES: "queries"
+      WORKERS_COUNT: 2
+  redis:
+    image: redis:latest
+    restart: always
+
