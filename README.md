@@ -154,12 +154,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Daniel Zelalem - danielzelalemheru@gmail.com
+    Binyam Sisay - binasisayet8790@gmail.com
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [10 Academy](https://www.10academy.org/)
+* Daniel Zelalem
 
 
 
@@ -177,6 +178,6 @@ Daniel Zelalem - danielzelalemheru@gmail.com
 [license-url]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/bina3c
-[product-screenshot]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/blob/3418ea1749b0016ccff379d9b145f7eab862b32a/images/Screen%20Shot%202021-09-30%20at%2023.06.38.png
+[product-screenshot]: https://raw.githubusercontent.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/main/images/design.png
 
 
