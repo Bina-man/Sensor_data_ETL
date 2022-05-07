@@ -1,0 +1,13 @@
+
+SQLAlchemy
+dbt-mysql
+apache-airflow-providers-mysql
+apache-airflow-providers-postgres
+apache-airflow
+dbt
+pandas
+mysql-connector-python
+
+
+
+

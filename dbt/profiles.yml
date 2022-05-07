@@ -1,0 +1,11 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      server: mysql-dbt
+      username: root
+      password: pssd
+      port: 3306
+      schema: analytics
+      threads: 4

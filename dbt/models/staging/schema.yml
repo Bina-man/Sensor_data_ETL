@@ -1,0 +1,93 @@
+version: 2
+
+models:
+  - name: clean_observation
+    description: Observations collected by sensors on traffic flow in the I80 corridor near Davis, CA. The original source data has many missing values from col3-col26. The missing values has been impute using 0
+
+    columns:
+      - name: station_id
+        description: The id of for the station.
+        tests:
+          - unique
+          - not_null
+
+      - name: date
+        description: The date when the observation was recoreded
+        tests:
+          - not_null
+
+      - name: time
+        description: The time when the observation was recoreded
+        tests:
+          - not_null
+
+  - name: station_metadata
+    description: Information about 53 station in the I80 corridor near Davis, CA
+
+    columns:
+      - name: ID
+        description: The ID of station. type is int
+        tests:
+          - unique
+          - not_null
+
+      - name: District
+        description: The district of the station
+
+      - name: County
+        description: The county of the station
+
+      - name: City
+        description: City of the station
+
+      - name: Name
+        description: Name of station
+        tests:
+          - not_null
+
+  - name: stations_summary
+    description: Statistic information on the flow of traffic in each station.
+
+    columns:
+      - name: ID
+        description: The ID of station. type is int
+        tests:
+          - unique
+          - not_null
+
+      - name: flow99
+        description: The 99 percentile  traffic flow observed in that satiton
+
+      - name: flow_max
+        description: The maximum traffic flow observed in that satiton
+
+      - name: flow_median
+        description: The median of the amount of traffic flow observed in that station
+
+      - name: flow_total
+        description: The total amount of traffic flow observed in that station
+        tests:
+          - unique
+          - not_null
+
+      - name: n_obs
+        description: The number of observation recored for that station
+        tests:
+          - unique
+          - not_null
+
+  - name: merged_station_summary
+    description: This table is created by merging station_metadata with station_summary on ID. It holds stattion statistic summary information along with the station metadata in a single table
+
+  - name: station_flow
+    description: Aggregated the avg of the total traffic flow and count of each station group by the station Name
+
+    columns:
+      - name: Name
+        description: The name of the station
+
+      - name: count(Name)
+        description: The frequency of the station name.
+
+      - name: avg(flow_total)
+        description: The mean of the total traffic flow for station Name
