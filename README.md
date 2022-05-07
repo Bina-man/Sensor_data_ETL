@@ -17,11 +17,11 @@
     <a href="https://sensor-data-elt.herokuapp.com/index.html#!/overview"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/bina3c/sensor-data-ELT">View Demo</a>
+    <a href="https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering">View Demo</a>
     ·
-    <a href="https://github.com/bina3c/sensor-data-ELT/issues">Report Bug</a>
+    <a href="https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/issues">Report Bug</a>
     ·
-    <a href="https://github.com/bina3c/sensor-data-ELT/issues">Request Feature</a>
+    <a href="https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/issues">Request Feature</a>
   </p>
 </p>
 
@@ -87,7 +87,7 @@ Make sure you have docker installed on local machine.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/bina3c/sensor-data-ELT.git
+   git clone https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering.git
    ```
 2. Run
    ```sh
@@ -165,18 +165,18 @@ Daniel Zelalem - danielzelalemheru@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/bina3c/sensor-data-ELT.svg?style=for-the-badge
-[contributors-url]: https://github.com/bina3c/sensor-data-ELT/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/bina3c/sensor-data-ELT.svg?style=for-the-badge
-[forks-url]: https://github.com/bina3c/sensor-data-ELT/network/members
-[stars-shield]: https://img.shields.io/github/stars/bina3c/sensor-data-ELT.svg?style=for-the-badge
-[stars-url]: https://github.com/bina3c/sensor-data-ELT/stargazers
-[issues-shield]: https://img.shields.io/github/issues/bina3c/sensor-data-ELT.svg?style=for-the-badge
-[issues-url]: https://github.com/bina3c/sensor-data-ELT/issues
-[license-shield]: https://img.shields.io/github/license/bina3c/sensor-data-ELT.svg?style=for-the-badge
-[license-url]: https://github.com/bina3c/sensor-data-ELT/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Bina-man/Sensor_data_ETL-ELT_DataEngineering.svg?style=for-the-badge
+[contributors-url]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Bina-man/Sensor_data_ETL-ELT_DataEngineering.svg?style=for-the-badge
+[forks-url]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/network/members
+[stars-shield]: https://img.shields.io/github/stars/Bina-man/Sensor_data_ETL-ELT_DataEngineering.svg?style=for-the-badge
+[stars-url]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Bina-man/Sensor_data_ETL-ELT_DataEngineering.svg?style=for-the-badge
+[issues-url]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/issues
+[license-shield]: https://img.shields.io/github/license/Bina-man/Sensor_data_ETL-ELT_DataEngineering.svg?style=for-the-badge
+[license-url]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/bina3c
-[product-screenshot]: https://github.com/bina3c/sensor-data-ELT/blob/3418ea1749b0016ccff379d9b145f7eab862b32a/images/Screen%20Shot%202021-09-30%20at%2023.06.38.png
+[product-screenshot]: https://github.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/blob/3418ea1749b0016ccff379d9b145f7eab862b32a/images/Screen%20Shot%202021-09-30%20at%2023.06.38.png
 
 
