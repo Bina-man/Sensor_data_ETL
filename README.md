@@ -160,7 +160,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [10 Academy](https://www.10academy.org/)
-* Daniel Zelalem
 
 
 
@@ -179,5 +178,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/bina3c
 [product-screenshot]: https://raw.githubusercontent.com/Bina-man/Sensor_data_ETL-ELT_DataEngineering/main/images/design.png
-
 
